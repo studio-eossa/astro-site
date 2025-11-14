@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 const pageTitle = "About Me";
 
 const identity = {
@@ -27,15 +29,6 @@ const textCase = "uppercase";
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
         <style define:vars={{skillColor, fontWeight, textCase}}>
-            ::root {
-                --navLink: cadetblue;
-                --navFont: Georgia;
-            }
-
-            .top-nav a {
-                color: var(--navLink);
-                font-family: var(--navFont);
-            }
             h1 {
                 color: purple;
                 font-size: 4rem;
