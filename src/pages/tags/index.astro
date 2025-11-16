@@ -1,8 +1,21 @@
 ---
+// import BaseLayout
 import BaseLayout from "../../layouts/BaseLayout.astro";
+
+// access data from all .md blog post file
+const allPosts = Object.values(
+    import.meta.glob("../posts/*.md", { eager: true })
+);
+
+// returns a list of unique tags
+const tags = [
+    ...new Set(allPosts.map((post: any) => post.frontmatter.tags).flat()),
+];
+
+// set the page title
 const pageTitle = "Tags Index";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-    <slot />
+    <div>{tags.map((tag) => <p>{tag}</p>)}</div>
 </BaseLayout>
