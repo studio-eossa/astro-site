@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogPost from "../../components/BlogPost.astro";
 
 export async function getStaticPaths() {
     const allPosts = Object.values(
@@ -26,11 +27,16 @@ const filteredPosts = posts.filter((post: any) =>
 <BaseLayout pageTitle={tag}>
     <p>Posts tagged with {tag}</p>
     <ul>
-        {
+        <!-- {
             filteredPosts.map((post: any) => (
                 <li>
                     <a href={post.url}>{post.frontmatter.title}</a>
                 </li>
+            ))
+        } -->
+        {
+            filteredPosts.map((post: any) => (
+                <BlogPost url={post.url} title={post.frontmatter.title} />
             ))
         }
     </ul>
