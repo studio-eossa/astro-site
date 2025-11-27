@@ -7,5 +7,8 @@ const pageTitle = "Home Page";
 
 <BaseLayout pageTitle={pageTitle}>
     <h2>some sorta subtitle</h2>
-    <Greeting messages={["Hi", "Hello", "Howdy", "Hey there"]} />
+    <!-- The client:load directive tells Astro to send and rerun its JavaScript on
+    the client when the page loads, making the component interactive. This is called
+    a hydrated component. -->
+    <Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
 </BaseLayout>
