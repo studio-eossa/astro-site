@@ -7,7 +7,7 @@ const { frontmatter } = Astro.props;
     <p><i>{frontmatter.description}</i></p>
     <p>
         By {frontmatter.author} | Published: {
-            frontmatter.pubDate.toString().slice(0, 10)
+            frontmatter.pubDate.toLocaleDateString()
         }
     </p>
 
