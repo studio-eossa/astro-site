@@ -1,16 +1,14 @@
 ---
+import { getCollection } from "astro:content";
+
 // import BaseLayout
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 // access data from all .md blog post file
-const allPosts = Object.values(
-    import.meta.glob("../posts/*.md", { eager: true })
-);
+const allPosts = await getCollection("blog");
 
 // returns a list of unique tags
-const tags = [
-    ...new Set(allPosts.map((post: any) => post.frontmatter.tags).flat()),
-];
+const tags = [...new Set(allPosts.map((post: any) => post.data.tags).flat())];
 
 // set the page title
 const pageTitle = "Tags Index";
